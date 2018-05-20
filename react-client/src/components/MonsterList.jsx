@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class MonsterList extends Component {
   constructor() {
@@ -8,9 +8,8 @@ class MonsterList extends Component {
       monsterListLoaded: false
     };
   }
-
   componentDidMount() {
-    fetch("/monsters")
+    fetch('/monsters')
       .then(res => res.json())
       .then(res => {
         console.log(res);
