@@ -56,18 +56,21 @@ class DashBoard extends Component {
       });
   }
   renderMonster() {
-    return this.state.myMonster ? (
-      this.state.myMonster.map(monster => (
-        <h1 key={monster.id}>{monster.name}</h1>
-      ))
-    ) : (
-      <h3>Create a monster</h3>
+    const { myMonster } = this.state;
+    return (
+      <div>
+        <AddMonsterForm addMonster={this.addMonster} />
+        {myMonster ? (
+          myMonster.map(monster => <h1 key={monster.id}>{monster.name}</h1>)
+        ) : (
+          <h2>Create a monster</h2>
+        )}
+      </div>
     );
   }
   render() {
     return (
       <div className="dash">
-        <AddMonsterForm addMonster={this.addMonster} />
         {this.state.monsterLoaded ? this.renderMonster() : <h2>Loading...</h2>}
       </div>
     );
