@@ -35,6 +35,7 @@ class DashBoard extends Component {
       });
   }
   addMonster(e, data) {
+    e.preventDefault();
     fetch('/monsters', {
       method: 'POST',
       headers: {
